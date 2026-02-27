@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} Catalogo de Produtos {% endblock %}
+
+{% block conteudo %}
+    <article>
+        <h2>A melhor Loja de <br>Produtos de Informática
+            da Web!</h2>
+        <h4>Aproveite nossas ofertas!</h4>
+    </article>
+    <article class="grid">
+    {% for p in prods %}
+        <div>
+            <img src="{% if p.imagem %}
+                         {{ p.imagem.url }}
+                      {% else %}
+                         {% static 'imagens/naodisp.png' %}
+                      {% endif %}" alt="imagem de {{ p.nome }}">
+            <p>{{ p.nome }} - R${{ p.preco }}</p>
+        </div>
+    {% endfor %}
+    </article>
+{% endblock %}

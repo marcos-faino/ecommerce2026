@@ -41,6 +41,7 @@ class Produto(models.Model):
     criado = models.DateTimeField(auto_now_add=True)
     atualizado = models.DateTimeField(auto_now=True)
 
+
     class Meta:
         ordering = ('categoria', 'nome')
 

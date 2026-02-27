@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja ADS - {% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
+</head>
+<body>
+    <header class="container pico-background-jade-650">
+        <nav>
+            <ul>
+                <li>
+                    <h1 class="container pico-color-jade-50">🏬 Loja ADS</h1>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+</body>
+</html>
