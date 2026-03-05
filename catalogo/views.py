@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
 from .models import Produto
 
 
@@ -10,3 +10,13 @@ class HomeView(TemplateView):
         cont = super().get_context_data(**kwargs)
         cont["prods"] = Produto.disponiveis.all().order_by("?")[:3]
         return cont
+
+
+class ProdutoDetailView(DetailView):
+    model = Produto
+    template_name = "produtos/produto.html"
+    context_object_name = "produto"
+
+
+class ProdutoListView(ListView):
+    model = Produto
