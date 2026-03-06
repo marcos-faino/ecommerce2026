@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} Lista de Produtos {% endblock %}
+
+{% block conteudo %}
+<nav>
+    <ul>
+    {% for c in categorias %}
+        <li>
+            <a role="button" href="{% url 'listarprodutoscat' c.slug %}" class="contrast">
+                {{ c.nome }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>
+<article>
+    <h2>Lista de Produtos</h2>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th>Imagem</th><th>Nome</th><th>Preço</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for p in produtos %}
+        <tr>
+            <td>
+                <a href="{% url 'detalheproduto' p.slug %}">
+                    <img src="{% if p.imagem %}
+                                {{ p.imagem.url }}
+                              {% else %}
+                                {% static 'imagens/naodisp.png' %}
+                              {% endif %}"
+                        alt="imagem de {{ p.nome }}"
+                        width="100"
+                    >
+                </a>
+            </td>
+            <td>{{ p.nome }}</td>
+            <td>R${{ p.preco }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">Não existem produtos dessa categoria.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</article>
+{% endblock %}
