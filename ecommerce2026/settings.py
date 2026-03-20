@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'catalogo',
     'carrinho',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carrinho.context_processors.carrinho',
             ],
         },
     },
@@ -139,3 +141,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CAR_SESSION_ID = env('CAR_SESSION_ID')
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

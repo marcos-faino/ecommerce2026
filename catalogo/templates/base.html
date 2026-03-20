@@ -11,7 +11,9 @@
         <nav>
             <ul>
                 <li>
-                    <strong><h1 class="pico-color-jade-50">🏬 Loja ADS</h1></strong>
+                    <strong><h1 class="pico-color-jade-50">
+                        <a href="{% url 'home' %}">🏬</a> Loja ADS
+                    </h1></strong>
                 </li>
             </ul>
             <ul>
@@ -20,6 +22,11 @@
                 </li>
                 <li>
                     <a href="" class="pico-color-jade-50">Sobre&nbsp;&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                    <a href="{% url 'vercarrinho' %}" class="pico-color-jade-50">
+                        🛒<span>{{ carrinho|length }} itens</span>
+                    </a>
                 </li>
             </ul>
         </nav>

@@ -23,6 +23,7 @@
             <p>R${{ produto.preco }}</p>
             <form action="{% url 'addproduto' produto.id %}" method="post">
                 {% csrf_token %}
+                {{ formadd.as_p }}
                 <button class="secondary">🛒 Adicionar ao Carrinho</button>
             </form>
         </div>

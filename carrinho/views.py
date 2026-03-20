@@ -21,7 +21,9 @@ class CarrinhoAddProdutoView(FormView):
         carrinho = Carrinho(self.request)
         carrinho.addProduto(produto=self.produto,
                             quant=cd['quant'],
-                            alterarquant=cd['alterarquant'])
+                            alterarquant=cd['alterar'])
+        if cd['alterar']:
+            return redirect('vercarrinho')
         return super().form_valid(form)
 
     def form_invalid(self, form):
