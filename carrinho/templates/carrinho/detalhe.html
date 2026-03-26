@@ -13,7 +13,7 @@
         <thead data-theme="dark">
         <tr>
             <th>Imagem</th>
-            <th>Nome</th>
+            <th style="width:50%">Nome</th>
             <th>Quant</th>
             <th>Preço Unit</th>
             <th>Total</th>
@@ -44,8 +44,8 @@
                         {% csrf_token %}
                         {{ item.form_alterar.quant }}
                         {{ item.form_alterar.alterar }}
-                        <input type="submit" value="atualizar" role="button"
-                               class="dark">
+                        <!--input type="submit" value="atualizar" role="button"
+                               class="dark"-->
                     </form>
                 </td>
                 <td>R${{ item.preco }}</td>
@@ -80,5 +80,6 @@
     </div>
 
 </article>
+<script src="{% static 'scripts/carrinho.js' %}"></script>
 
 {% endblock %}
