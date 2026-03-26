@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Seleciona todos o campo de quantidade dentro dos formulários de atualização
-    const quant = document.querySelector('#id_quant');
+    const quant_itens = document.querySelectorAll('.quant_itens');
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-        quant.addEventListener('change', function() {
+        quant_itens.forEach(quant => {
+                quant.addEventListener('change', function() {
             const form = this.closest('form');
             const formData = new FormData(form);
             const url = form.getAttribute('action');
@@ -27,3 +28,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+});
