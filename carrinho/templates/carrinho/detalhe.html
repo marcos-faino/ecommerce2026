@@ -73,7 +73,7 @@
             Continuar comprando ...
         </a>
         {% if carrinho|length != 0 %}
-        <a href="#" role="button" class="primary">
+        <a href="{% url 'novopedido' %}" role="button" class="primary">
             Finalizar Pedido.
         </a>
         {% endif %}

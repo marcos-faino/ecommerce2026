@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 
+from django.views import View
 from django.views.generic import ListView, CreateView, TemplateView
+from utils.my_mixins import GeraPDFMixin
 
 from carrinho.car import Carrinho
 from .models import Pedido, ItemPedido
@@ -17,7 +19,7 @@ class PedidoCreateView(LoginRequiredMixin, CreateView):
         car = Carrinho(self.request)
         pedido = form.save(commit=False)
         usuario = self.request.user
-        pedido.usuario = usuario
+        pedido.cliente = usuario
         pedido.save()
         for item in car:
             ItemPedido.objects.create(
@@ -39,6 +41,7 @@ class ResumoPedidoTemplateView(LoginRequiredMixin, TemplateView):
         cont['pedido'] = Pedido.objects.get(id=self.kwargs['idpedido'])
         return cont
 
+
 class PedidoListView(LoginRequiredMixin, ListView):
     model = Pedido
     template_name = 'pedido/meuspedidos.html'
@@ -48,7 +51,13 @@ class PedidoListView(LoginRequiredMixin, ListView):
         return Pedido.objects.filter(cliente=self.request.user)
 
 
+class ListaPedidosPDF(View, GeraPDFMixin):
 
+    def get(self, request, *args, **kwargs):
+        pedidos = Pedido.objects.filter(cliente=self.request.user)
+        context = {"pedidos": pedidos}
+        return self.gerarPDF('pedido/meuspedidospdf.html',
+                             context)
 
 
 

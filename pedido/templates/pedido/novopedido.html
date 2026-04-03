@@ -7,12 +7,12 @@
   <header>
     <h2>Seu Pedido</h2>
   </header>
-  <table>
-    <thead>
+  <table class="striped">
+    <thead data-theme="dark">
     <tr>
-      <th>produto</th>
-      <th>quantidade</th>
-      <th>valor</th>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
     </tr>
     </thead>
     <tbody>
@@ -20,13 +20,13 @@
     <tr>
       <td style="width:60%">{{ item.produto.nome }}</td>
       <td>{{ item.quantidade }}</td>
-      <td>R${{ item.preco_total }}</td>
+      <td>R$ {{ item.valor_total }}</td>
     </tr>
     {%endfor%}
     </tbody>
     <tfoot>
     <tr>
-      <td rolspan="3">Total Geral: R${{ car.get_preco_total }}</td>
+      <td colspan="3"><strong>Total Geral: R$ {{ carrinho.get_preco_total }}</strong></td>
     </tr>
     </tfoot>
   </table>

@@ -24,7 +24,9 @@
                         {{ request.user.first_name }}
                     </summary>
                     <ul dir="rtl">
-                        <li><a href="#" role="button" class="outline">Meus Pedidos</a></li>
+                        <li><a href="{% url 'meuspedidos' %}" role="button" class="outline">
+                            Meus Pedidos
+                        </a></li>
                         <li>
                             <form action="{% url 'logoutuser' %}" method="POST">
                                 {% csrf_token %}

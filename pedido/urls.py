@@ -6,6 +6,8 @@ urlpatterns = [
          name='novopedido'),
     path('meuspedidos/', views.PedidoListView.as_view(),
          name='meuspedidos'),
+    path('pdfmeuspedidos/', views.ListaPedidosPDF.as_view(),
+         name='meuspedidospdf'),
     path('resumo/<int:idpedido>', views.ResumoPedidoTemplateView.as_view(),
          name='resumopedido'),
 ]
