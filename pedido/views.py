@@ -55,7 +55,7 @@ class ListaPedidosPDF(View, GeraPDFMixin):
 
     def get(self, request, *args, **kwargs):
         pedidos = Pedido.objects.filter(cliente=self.request.user)
-        context = {"pedidos": pedidos}
+        context = {'pedidos': pedidos, 'usuario': self.request.user}
         return self.gerarPDF('pedido/meuspedidospdf.html',
                              context)
 
