@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Pagamento Realizado {% endblock %}
+
+{% block conteudo %}
+<article>
+    <h2>Pagamento Realizado com Sucesso!!!!</h2>
+    <h3>Obrigado por comprar conosco!</h3>
+    <a href="{% url 'home' %}" role="button">
+        Continuar navegando
+    </a>
+</article>
+{% endblock %}

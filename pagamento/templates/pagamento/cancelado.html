@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Pagamento Não Realizado {% endblock %}
+
+{% block conteudo %}
+<article>
+    <h2>Seu pagamento ainda não foi efetuado.</h2>
+    <h3>Você pode:</h3>
+    <a href="{% url 'home' %}" role="button">
+        Continuar navegando
+    </a>
+    <a href="{% url 'meuspedidos' %}" role="button">
+        Ir para os seus pedidos.
+    </a>
+</article>
+{% endblock %}

@@ -1,6 +1,7 @@
+from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, reverse
 
-from ecommerce2026 import settings
+
 from pedido.models import Pedido
 
 from django.views.generic import FormView, TemplateView
@@ -25,7 +26,11 @@ class ProcessarPgtoFormView(FormView):
             private_key=settings.BRAINTREE_PRIVATE_KEY,
         )
         self.pedido = Pedido.objects.get(id=self.kwargs['idpedido'])
-        self.braintree_client_token = braintree.ClientToken.generate({})
+        try:
+            self.braintree_client_token = braintree.ClientToken.generate({})
+        except Exception as e:
+            print(f"Erro detalhado: {e}")
+
         return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
