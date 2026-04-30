@@ -36,6 +36,7 @@ class ProcessarPgtoFormView(FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['braintree_client_token'] = self.braintree_client_token
+        context['form'] = self.get_form()
         return context
 
 
@@ -57,6 +58,10 @@ class ProcessarPgtoFormView(FormView):
         self.pedido.pago = True
         self.pedido.save()
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
 
     def get_success_url(self):
         return reverse('pgtorealizado')

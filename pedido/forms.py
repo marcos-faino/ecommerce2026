@@ -6,4 +6,5 @@ class PedidoModelForm(forms.ModelForm):
 
     class Meta:
         model = Pedido
-        exclude = ['cliente', 'pago']
+        # mudei aqui para tentar efetuar pagamento
+        exclude = ['cliente', 'pago', 'braintree_id']

@@ -10,6 +10,8 @@ class Pedido(models.Model):
     criado = models.DateTimeField(auto_now_add=True)
     atualizado = models.DateTimeField(auto_now=True)
     pago = models.BooleanField(default=False)
+    # mudei aqui para tentar efetuar pagamento
+    braintree_id = models.CharField(max_length=150, blank=True)
 
     class Meta:
         ordering = ("-criado",)

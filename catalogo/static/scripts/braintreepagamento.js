@@ -1,9 +1,9 @@
 
 var form = document.querySelector('#my-sample-form');
-var submit = document.querySelector('input[type="submit"]');
+var submit = document.querySelector('#button-pay');
 
 braintree.client.create({
-  authorization:'{{ braintree_client_token|safe }}',
+  authorization: document.querySelector("#client_token").value,
 }, function (err, clientInstance) {
   if (err) {
     console.log(err);
@@ -109,7 +109,7 @@ braintree.client.create({
       }
     });
 
-    submit.addEventListener('click', function (event) {
+    form.addEventListener('submit', function (event) {
       event.preventDefault();
 
       hostedFieldsInstance.tokenize(function (err, payload) {
@@ -117,7 +117,7 @@ braintree.client.create({
           console.error(err);
           return;
         }
-
+        alert(document.getElementById('id_payment_method_nonce').value);
         document.getElementById('id_payment_method_nonce').value = payload.nonce;
         form.submit();
       });
