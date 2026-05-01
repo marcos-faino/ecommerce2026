@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from catalogo.models import Produto
 
@@ -17,7 +18,7 @@ class Pedido(models.Model):
         ordering = ("-criado",)
 
     def __str__(self):
-        return f'Pedido {self.id}'
+        return _('Pedido {self.id}').format(self.pk)
 
     def get_total_geral(self):
         return sum(item.get_total() for item in self.itens_pedido.all())
@@ -37,7 +38,7 @@ class ItemPedido(models.Model):
         verbose_name_plural = 'Itens Pedido'
 
     def __str__(self):
-        return f'Item {self.id} do Pedido {self.pedido.id}'
+        return _('Item {self.id} do Pedido {self.pedido.id}').format(self.pk, self.pedido.pk)
 
     def get_total(self):
         return self.preco_unit * self.quantidade

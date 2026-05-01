@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <title>Loja ADS - {% block titulo %}{% endblock %}</title>
@@ -12,7 +14,7 @@
         <ul>
             <li>
                 <strong><h1 class="pico-color-jade-50">
-                    <a href="{% url 'home' %}">🏬</a> Loja ADS
+                    <a href="{% url 'home' %}">🏬</a> {% trans 'Loja ADS' %}
                 </h1></strong>
             </li>
         </ul>
@@ -25,7 +27,7 @@
                     </summary>
                     <ul dir="rtl">
                         <li><a href="{% url 'meuspedidos' %}" role="button" class="outline">
-                            Meus Pedidos
+                            {% trans 'Meus Pedidos' %}
                         </a></li>
                         <li>
                             <form action="{% url 'logoutuser' %}" method="POST">
@@ -41,22 +43,22 @@
             <li>
                 <details class="dropdown">
                     <summary>
-                        Comece aqui
+                        {% trans 'Comece aqui' %}
                     </summary>
                     <ul dir="rtl">
                         <li><a href="{% url 'loginuser' %}"
-                               role="button" class="outline">Entre</a></li>
+                               role="button" class="outline">{% trans 'Entre' %}</a></li>
                         <li><a href="{% url 'cadusuario' %}"
-                                role="button" class="outline">Cadastre-se</a></li>
+                                role="button" class="outline">{% trans 'Cadastre-se' %}</a></li>
                     </ul>
                 </details>
             </li>
             {% endif %}
             <li>
-                <a href="{% url 'listarprodutos' %}" class="pico-color-jade-50">Produtos</a>
+                <a href="{% url 'listarprodutos' %}" class="pico-color-jade-50">{% trans 'Produtos' %}</a>
             </li>
             <li>
-                <a href="" class="pico-color-jade-50">Sobre&nbsp;&nbsp;&nbsp;</a>
+                <a href="" class="pico-color-jade-50">{% trans 'Sobre' %}&nbsp;&nbsp;&nbsp;</a>
             </li>
             <li>
                 <a href="{% url 'vercarrinho' %}" class="pico-color-jade-50">

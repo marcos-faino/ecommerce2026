@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import environ
+from django.conf.global_settings import LOCALE_PATHS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -151,3 +153,7 @@ LOGOUT_REDIRECT_URL = 'home'
 BRAINTREE_MERCHANT_ID = env('MERCHANT_ID')
 BRAINTREE_PUBLIC_KEY = env('PUBLIC_KEY')
 BRAINTREE_PRIVATE_KEY = env('PRIVATE_KEY')
+
+LOCALE_PATHS = (
+    BASE_DIR / 'locale',
+)

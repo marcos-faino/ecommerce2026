@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% load static %}
 
-{% block titulo %} Meu Carrinho de Compras {% endblock %}
+{% block titulo %} {% trans 'Meu Carrinho de Compras' %} {% endblock %}
 
 {% block conteudo %}
 <article>
     <header>
-        <h1>Meu Carrinho de Compras 🛒</h1>
+        <h1>{% trans 'Meu Carrinho de Compras' %} 🛒</h1>
     </header>
     <table class="stripped">
         <thead data-theme="dark">
         <tr>
-            <th>Imagem</th>
-            <th style="width:50%">Nome</th>
-            <th>Quant</th>
-            <th>Preço Unit</th>
-            <th>Total</th>
-            <th>Remover</th>
+            <th>{% trans 'Imagem' %}</th>
+            <th style="width:50%">{% trans 'Nome' %}</th>
+            <th>{% trans 'Quant' %}</th>
+            <th>{% trans 'Preço Unit' %}</th>
+            <th>{% trans 'Total' %}</th>
+            <th>{% trans 'Remover' %}</th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +32,7 @@
                               {% else %}
                                 {% static 'imagens/naodisp.png' %}
                               {% endif %}"
-                        alt="imagem de {{ p.nome }}"
+                        alt="{% trans 'imagem de {{ p.nome }}' %}"
                         width="100"
                     >
                     </a>
@@ -59,10 +60,10 @@
             </tr>
             {% endwith %}
         {% empty %}
-        <tr><td colspan="6">Seu carrinho está vazio 🥹</td> </tr>
+        <tr><td colspan="6">{% trans 'Seu carrinho está vazio' %} 🥹</td> </tr>
         {% endfor %}
         <tr>
-            <td colspan="4"><strong>Total Geral</strong></td>
+            <td colspan="4"><strong>{% trans 'Total Geral' %}</strong></td>
             <td colspan="2">R$ {{ carrinho.get_preco_total }}</td>
         </tr>
         </tbody>
@@ -70,11 +71,11 @@
     <div class="grid">
         <a href="{% url 'listarprodutos' %}" role="button"
            class="pico-background-jade-650">
-            Continuar comprando ...
+            {% trans 'Continuar comprando' %} ...
         </a>
         {% if carrinho|length != 0 %}
         <a href="{% url 'novopedido' %}" role="button" class="primary">
-            Finalizar Pedido.
+            {% trans 'Finalizar Pedido' %}.
         </a>
         {% endif %}
     </div>

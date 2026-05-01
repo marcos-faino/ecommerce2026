@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Produto, Categoria
 from carrinho.forms import CarrinhoForm
+from django.utils import translation
 
 
 class HomeView(TemplateView):
@@ -9,6 +10,8 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         cont = super().get_context_data(**kwargs)
         cont["prods"] = Produto.disponiveis.all().order_by("?")[:3]
+        idioma = translation.get_language()
+        cont["idioma"] = idioma
         return cont
 
 

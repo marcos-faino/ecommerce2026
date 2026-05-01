@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, reverse
-
+from django.utils import translation
+from django.utils.translation import gettext as _
 
 from pedido.models import Pedido
 
@@ -29,7 +30,7 @@ class ProcessarPgtoFormView(FormView):
         try:
             self.braintree_client_token = braintree.ClientToken.generate({})
         except Exception as e:
-            print(f"Erro detalhado: {e}")
+            print(_(f"Erro detalhado: {e}"))
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -37,6 +38,8 @@ class ProcessarPgtoFormView(FormView):
         context = super().get_context_data(**kwargs)
         context['braintree_client_token'] = self.braintree_client_token
         context['form'] = self.get_form()
+        idioma = translation.get_language()
+        context['idioma'] = idioma
         return context
 
 
@@ -52,12 +55,13 @@ class ProcessarPgtoFormView(FormView):
         if not result:
             context = self.get_context_data()
             context['form'] = self.get_form(self.get_form_class())
-            context['braintree_error'] = "Pagamento não processado!"
+            context['braintree_error'] = _("Pagamento não processado!")
             return self.render_to_response(context)
         transaction_id = result.transaction.id
         self.pedido.pago = True
         self.pedido.save()
         return super().form_valid(form)
+
 
     def form_invalid(self, form):
         print(form.errors)
@@ -65,6 +69,7 @@ class ProcessarPgtoFormView(FormView):
 
     def get_success_url(self):
         return reverse('pgtorealizado')
+
 
 
 class PgtoRealizadoView(TemplateView):

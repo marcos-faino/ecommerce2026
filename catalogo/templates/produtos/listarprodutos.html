@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
-{% block titulo %} Lista de Produtos {% endblock %}
+{% block titulo %} {% trans 'Lista de Produtos' %} {% endblock %}
 
 {% block conteudo %}
 <nav>
@@ -16,11 +17,13 @@
     </ul>
 </nav>
 <article>
-    <h2>Lista de Produtos</h2>
+    <h2>{% trans 'Lista de Produtos' %}</h2>
     <table class="striped">
         <thead>
         <tr>
-            <th>Imagem</th><th>Nome</th><th>Preço</th>
+            <th>{% trans 'Imagem' %}</th>
+            <th>{% trans 'Nome' %}</th>
+            <th>{% trans 'Preço' %}</th>
         </tr>
         </thead>
         <tbody>
@@ -42,7 +45,7 @@
             <td>R${{ p.preco }}</td>
         </tr>
         {% empty %}
-        <tr><td colspan="3">Não existem produtos dessa categoria.</td></tr>
+        <tr><td colspan="3">{% trans 'Não existem produtos dessa categoria' %}.</td></tr>
         {% endfor %}
         </tbody>
     </table>

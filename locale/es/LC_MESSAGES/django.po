@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-30 21:33-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+#: .\carrinho\templates\carrinho\detalhe.html:6
+#: .\carrinho\templates\carrinho\detalhe.html:11
+msgid "Meu Carrinho de Compras"
+msgstr "Mi Carrito de Compras"
+
+#: .\carrinho\templates\carrinho\detalhe.html:16
+#: .\catalogo\templates\produtos\listarprodutos.html:24
+#: .\pedido\templates\pedido\resumopedido.html:15
+msgid "Imagem"
+msgstr "Imagen"
+
+#: .\carrinho\templates\carrinho\detalhe.html:17
+#: .\catalogo\templates\produtos\listarprodutos.html:25
+#: .\pedido\templates\pedido\resumopedido.html:16
+msgid "Nome"
+msgstr "Nombre"
+
+#: .\carrinho\templates\carrinho\detalhe.html:18
+#: .\pedido\templates\pedido\resumopedido.html:17
+msgid "Quant"
+msgstr "Cant."
+
+#: .\carrinho\templates\carrinho\detalhe.html:19
+#: .\pedido\templates\pedido\resumopedido.html:18
+msgid "Preço Unit"
+msgstr "Precio Unit."
+
+#: .\carrinho\templates\carrinho\detalhe.html:20
+#: .\pedido\templates\pedido\meuspedidos.html:13
+#: .\pedido\templates\pedido\resumopedido.html:19
+msgid "Total"
+msgstr "Total"
+
+#: .\carrinho\templates\carrinho\detalhe.html:21
+msgid "Remover"
+msgstr "Eliminar"
+
+#: .\carrinho\templates\carrinho\detalhe.html:35
+msgid "imagem de {{ p.nome }}"
+msgstr "imagen de {{ p.nome }}"
+
+#: .\carrinho\templates\carrinho\detalhe.html:63
+msgid "Seu carrinho está vazio"
+msgstr "Tu carrito está vacío"
+
+#: .\carrinho\templates\carrinho\detalhe.html:66
+#: .\pedido\templates\pedido\novopedido.html:30
+#: .\pedido\templates\pedido\resumopedido.html:50
+msgid "Total Geral"
+msgstr "Total General"
+
+#: .\carrinho\templates\carrinho\detalhe.html:74
+#: .\pedido\templates\pedido\resumopedido.html:58
+msgid "Continuar comprando"
+msgstr "Seguir comprando"
+
+#: .\carrinho\templates\carrinho\detalhe.html:78
+#: .\pedido\templates\pedido\novopedido.html:38
+msgid "Finalizar Pedido"
+msgstr "Finalizar Pedido"
+
+#: .\catalogo\templates\base.html:16
+msgid "Loja ADS"
+msgstr "Tienda ADS"
+
+#: .\catalogo\templates\base.html:29
+#: .\pedido\templates\pedido\meuspedidos.html:4
+msgid "Meus Pedidos"
+msgstr "Mis Pedidos"
+
+#: .\catalogo\templates\base.html:45
+msgid "Comece aqui"
+msgstr "Empieza aquí"
+
+#: .\catalogo\templates\base.html:49
+msgid "Entre"
+msgstr "Iniciar sesión"
+
+#: .\catalogo\templates\base.html:51
+msgid "Cadastre-se"
+msgstr "Regístrate"
+
+#: .\catalogo\templates\base.html:57
+msgid "Produtos"
+msgstr "Productos"
+
+#: .\catalogo\templates\base.html:60
+msgid "Sobre"
+msgstr "Sobre"
+
+#: .\catalogo\templates\index.html:5
+msgid "Catalogo de Produtos"
+msgstr "Catálogo de Productos"
+
+#: .\catalogo\templates\index.html:9
+msgid "A melhor Loja de"
+msgstr "La mejor tienda de"
+
+#: .\catalogo\templates\index.html:11
+msgid "Aproveite nossas ofertas"
+msgstr "Aprovecha nuestras ofertas"
+
+#: .\catalogo\templates\produtos\listarprodutos.html:5
+#: .\catalogo\templates\produtos\listarprodutos.html:20
+msgid "Lista de Produtos"
+msgstr "Lista de Productos"
+
+#: .\catalogo\templates\produtos\listarprodutos.html:26
+msgid "Preço"
+msgstr "Precio"
+
+#: .\catalogo\templates\produtos\listarprodutos.html:48
+msgid "Não existem produtos dessa categoria"
+msgstr "No hay productos de esta categoría"
+
+#: .\catalogo\templates\produtos\produto.html:28
+msgid "Adicionar ao Carrinho"
+msgstr "Agregar al Carrito"
+
+#: .\pagamento\forms.py:14
+msgid "Não foi possível processar o pagamento"
+msgstr "No fue posible procesar el pago"
+
+#: .\pagamento\views.py:33
+#, python-brace-format
+msgid "Erro detalhado: {e}"
+msgstr "Error detallado: {e}"
+
+#: .\pagamento\views.py:58
+msgid "Pagamento não processado!"
+msgstr "¡Pago no procesado!"
+
+#: .\pedido\models.py:21
+#, python-brace-format
+msgid "Pedido {self.id}"
+msgstr "Pedido {self.id}"
+
+#: .\pedido\models.py:41
+#, python-brace-format
+msgid "Item {self.id} do Pedido {self.pedido.id}"
+msgstr "Ítem {self.id} del Pedido {self.pedido.id}"
+
+#: .\pedido\templates\pedido\meuspedidos.html:11
+msgid "Pedido"
+msgstr "Pedido"
+
+#: .\pedido\templates\pedido\meuspedidos.html:12
+msgid "Itens"
+msgstr "Ítems"
+
+#: .\pedido\templates\pedido\meuspedidos.html:14
+msgid "Pago"
+msgstr "Pagado"
+
+#: .\pedido\templates\pedido\meuspedidos.html:44
+msgid "Que pena, você ainda não comprou conosco"
+msgstr "Qué pena, aún no has comprado con nosotros"
+
+#: .\pedido\templates\pedido\meuspedidos.html:49
+msgid "Gerar PDF"
+msgstr "Generar PDF"
+
+#: .\pedido\templates\pedido\novopedido.html:9
+msgid "Seu Pedido"
+msgstr "Tu Pedido"
+
+#: .\pedido\templates\pedido\novopedido.html:14
+msgid "Produto"
+msgstr "Producto"
+
+#: .\pedido\templates\pedido\novopedido.html:16
+msgid "Valor"
+msgstr "Valor"
+
+#: .\pedido\templates\pedido\resumopedido.html:10
+msgid "Obrigado por comprar conosco"
+msgstr "Gracias por comprar con nosotros"
+
+#: .\pedido\templates\pedido\resumopedido.html:62
+msgid "Efetuar Pagamento"
+msgstr "Realizar Pago"
+
+#: .\usuario\views.py:21
+msgid "Usuario cadastrado com sucesso"
+msgstr "Usuario registrado con éxito"
+
+#: .\usuario\views.py:25
+msgid "Erro ao cadastrar"
+msgstr "Error al registrar"

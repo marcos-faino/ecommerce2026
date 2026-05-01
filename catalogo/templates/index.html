@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
-{% block titulo %} Catalogo de Produtos {% endblock %}
+{% block titulo %} {% trans 'Catalogo de Produtos' %} {% endblock %}
 
 {% block conteudo %}
     <article>
-        <h2>A melhor Loja de <br>Produtos de Informática
-            da Web!</h2>
-        <h4>Aproveite nossas ofertas!</h4>
+        <h2>{% translate 'A melhor Loja de' %} <br>{% trans 'Produtos de Informática da Web' %}!</h2>
+        <h4>{% translate 'Aproveite nossas ofertas' %}!</h4>
     </article>
     <article class="grid">
     {% for p in prods %}

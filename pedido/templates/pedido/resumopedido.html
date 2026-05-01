@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block titulo %} Resumo do Pedido {{ pedido.id }}{% endblock %}
@@ -6,16 +7,16 @@
 {% block conteudo %}
 <article>
     <header>
-        <h1>Obrigado por comprar conosco!</h1>
+        <h1>{% trans 'Obrigado por comprar conosco' %}!</h1>
     </header>
     <table class="stripped">
         <thead data-theme="dark">
         <tr>
-            <th>Imagem</th>
-            <th style="width:50%">Nome</th>
-            <th>Quant</th>
-            <th>Preço Unit</th>
-            <th>Total</th>
+            <th>{% trans 'Imagem' %}</th>
+            <th style="width:50%">{% trans 'Nome' %}</th>
+            <th>{% trans 'Quant' %}</th>
+            <th>{% trans 'Preço Unit' %}</th>
+            <th>{% trans 'Total' %}</th>
         </tr>
         </thead>
         <tbody>
@@ -46,7 +47,7 @@
             {% endwith %}
         {% endfor %}
         <tr>
-            <td colspan="4"><strong>Total Geral</strong></td>
+            <td colspan="4"><strong>{% trans 'Total Geral' %}</strong></td>
             <td colspan="1">R$ {{ pedido.get_total_geral }}</td>
         </tr>
         </tbody>
@@ -54,11 +55,11 @@
     <div class="grid">
         <a href="{% url 'listarprodutos' %}" role="button"
            class="pico-background-jade-650">
-            Continuar comprando ...
+            {% trans 'Continuar comprando' %} ...
         </a>
         {% if not pedido.pago %}
         <a href="{% url 'processar_pgto' pedido.id %}" role="button" class="primary">
-            Efetuar Pagamento.
+            {% trans 'Efetuar Pagamento' %}.
         </a>
         {% endif %}
     </div>
